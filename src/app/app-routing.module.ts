@@ -8,9 +8,9 @@ import { RegistryComponent } from './registry/registry.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'registry', component: RegistryComponent },
+  { path: 'view/:address', component: RegistryComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'about', component: AboutComponent },
-  { path: ':address', component: RegistryComponent },
 ];
 
 @NgModule({
