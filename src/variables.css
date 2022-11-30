@@ -1,0 +1,12 @@
+html {
+  background: var(--background);
+
+  --background: white;
+  --background-alternative: #f9f9f9;
+  --foreground: #282828;
+  --border: rgba(99, 116, 133, 0.25);
+  --border-alternative: rgba(99, 116, 133, 0.5);
+
+  --link: black;
+  --link-hover: #a3a3a3;
+}

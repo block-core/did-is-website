@@ -1,0 +1,294 @@
+@import "variables";
+
+/* Importing two fonts like this doesn't work, required to be link. Wonder why? */
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;900&family=Oswald:wght@700&display=swap"); */
+
+body,
+html {
+  height: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 20px;
+  scroll-behavior: smooth;
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 24px;
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  height: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url("/assets/splash0.jpg") url("/assets/splash1.jpg") url("/assets/splash2.jpg") url("/assets/splash3.jpg")
+    url("/assets/splash4.jpg");
+}
+
+h1,
+h2 {
+  font-family: "Oswald", Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+h3,
+h4,
+h5 {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-family: "Oswald", Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+.underline {
+  text-decoration: none;
+  position: relative;
+}
+
+.underline:after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  background: var(--foreground);
+}
+
+h3.underline:after {
+  width: 90px;
+}
+
+strong {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+}
+
+.error {
+  color: red;
+}
+
+.button {
+  white-space: nowrap;
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  border: 2px solid var(--foreground);
+  border-radius: 8px;
+  padding: 1em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  text-decoration: none;
+  font-size: 0.8em;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: rgb(224, 224, 224);
+  cursor: pointer;
+}
+
+.button .mu {
+  margin-left: 1em;
+  margin-right: 0.4em;
+}
+
+.button-light {
+  padding: 1.4em;
+  color: var(--background);
+  border: 2px solid var(--background);
+  background-color: transparent;
+}
+
+.button-light:hover {
+  background-color: rgba(224, 224, 224, 0.2);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.img-full {
+  width: 100%;
+}
+
+.page {
+  margin: 2em 4em 1em 4em;
+  max-width: 1400px;
+}
+
+.ruler {
+  border-top: 1px solid var(--border);
+  height: 1px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.large-icon {
+  font-size: 2em;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 3.6fr 30px;
+  grid-template-areas: "header" "content" "footer";
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.loading {
+  text-align: center;
+  padding-top: 20%;
+}
+
+.content {
+  grid-area: content;
+  overflow-y: auto;
+  background-color: var(--background-alternative);
+}
+
+.header {
+  grid-area: header;
+}
+
+.footer {
+  font-size: 0.8em;
+  grid-area: footer;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-left: 8px;
+  background-color: var(--background-alternative);
+}
+
+.footer-right {
+  float: right;
+}
+
+.footer-spacer {
+  width: 10px;
+  display: inline-block;
+}
+
+.footer a {
+  color: gray;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 800px) {
+  .page {
+    margin: 2em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .page {
+    margin: 1.4em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .page {
+    margin: 1em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .hide-mobile {
+    display: none;
+  }
+}

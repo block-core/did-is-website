@@ -1,0 +1,131 @@
+<div class="page">
+  <h1>Find</h1>
+
+  <div class="ruler"></div>
+
+  <p>
+    Lookup identities by their id. You need to know the exact id to find an
+    identity.
+  </p>
+
+  <div class="input-container">
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="address"
+      placeholder="Identity"
+    />
+    <a class="button" [routerLink]="['/', address]"
+      >Lookup <span class="hide-mobile">Identity</span>
+      <span class="mu mu-search"></span
+    ></a>
+  </div>
+
+  <div class="error" *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+
+  <div class="resolving" *ngIf="resolving">
+    <p>Resolving...</p>
+  </div>
+
+  <div *ngIf="identity">
+    <h3>Found identity</h3>
+
+    <!-- <img *ngIf="identity.image" class="identity-image" [src]="identity.image" /> -->
+
+    <div class="list-item">
+      <strong>Short</strong>
+      <span>{{ identity.short }}</span>
+    </div>
+
+    <div class="list-item">
+      <strong>ID</strong>
+      <span class="list-item-break">{{ identity.did }}</span>
+    </div>
+
+    <div class="list-item">
+      <strong>Version</strong>
+      <span class="list-item-break">{{
+        didResolutionResult.didDocumentMetadata["versionId"]
+      }}</span>
+    </div>
+
+    <div class="list-item">
+      <strong>Active</strong>
+      <span class="list-item-break">{{
+        didResolutionResult.didDocumentMetadata["deactivated"] == false
+      }}</span>
+    </div>
+
+    <div class="list-item">
+      <strong>Updated</strong>
+      <span class="list-item-break">{{
+        getDate(didResolutionResult.didDocumentMetadata["updated"])
+      }}</span>
+    </div>
+
+    <!-- <div class="list-item">
+         <strong>Name</strong>
+         <span>{{identity.name}}</span>
+      </div> -->
+
+    <!-- <div class="list-item">
+         <strong>Alias</strong>
+         <span>{{identity.alias}}</span>
+      </div>
+
+      <div class="list-item">
+         <strong>Title</strong>
+         <span>{{identity.title}}</span>
+      </div>
+
+      <div class="list-item">
+         <strong>Email</strong>
+         <span>{{identity.email}}</span>
+      </div>
+
+      <div class="list-item">
+         <strong>Url</strong>
+         <span>{{identity.url}}</span>
+      </div>
+
+      <div class="list-item list-item-margin clear">
+         <strong>Signature</strong>
+         <span class="list-item-break">Type: {{container.signature.type}}<br>Value: {{container.signature.value}}</span>
+      </div> -->
+<br>
+    <div class="list-item">
+      <strong>Document</strong>
+    </div>
+    <div class="list-item">
+      <textarea class="document">{{
+        didResolutionResult.didDocument | json
+      }}</textarea>
+    </div>
+    <br>
+    <div class="list-item">
+      <strong>Proof</strong>
+    </div>
+    <div class="list-item">
+      <textarea class="document">{{
+        didResolutionResult.didDocumentMetadata.proof | json
+      }}</textarea>
+    </div>
+  </div>
+
+  <div class="ruler"></div>
+
+  <h3>Don't trust. Verify.</h3>
+
+  <p>
+    You don't need to trust our word that the information is correct, you can
+    verify by yourself.
+  </p>
+
+  <p>
+    Check out the
+    <a href="https://docs.blockcore.net/" target="_blank">documentation</a> on
+    how to perform a verification.
+  </p>
+</div>

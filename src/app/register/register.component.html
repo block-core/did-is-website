@@ -1,0 +1,210 @@
+<div class="page">
+  <h1>Create</h1>
+
+  <div class="ruler"></div>
+
+  <p>
+    So you want to create your own identity? Then there are a few steps you need
+    to follow.
+  </p>
+
+  <p>Publishing your identities is free, you don't need to pay anything.</p>
+
+  <br />
+  <h2>Get the software</h2>
+
+  <p>
+    First you need to download and install Smart City Platform. Smart City
+    Platform is a Web5 and blockchain software that includes functionality to
+    <strong>manage your identities</strong> and also function as a
+    <strong>cryptocurrency wallet</strong>.
+  </p>
+
+  <p>
+    Download link here:
+    <a
+      href="https://chrome.google.com/webstore/detail/smart-city-platform/bmmhjnaohafphhlecmkkiaaglcebcapn"
+      >https://chrome.google.com/webstore/detail/smart-city-platform/bmmhjnaohafphhlecmkkiaaglcebcapn</a
+    >
+  </p>
+
+  <br />
+  <h2>Create the account</h2>
+
+  <p>
+    After you download and install, you will create a new wallet. During this
+    process, you will see 12-words. These are the
+    <strong>key to your identities</strong>. Keep it private and
+    <strong>never share</strong> with anyone.
+  </p>
+
+  <p>
+    If you ever loose your recovery phrase (12-words), you also loose access to
+    edit your identities forever. <strong>Keep it safe, keep it hidden</strong>.
+  </p>
+
+  <p>
+    We do not have a backup, we do not have access to edit your identity if you
+    loose your account.
+  </p>
+
+  <br />
+  <h2>Create your first identity</h2>
+
+  <p>
+    If you accept the default options when you create a new wallet, you'll
+    automatically get an account named 'Identity'.
+  </p>
+
+  <p>
+    Open your 'Identity' and you'll see that it is currently not
+    public (published). If you want to share it publicly with others, you can
+    click the `Publish` button to send it to a server. You can't revert this
+    operation, after you have made your identity known publicly, it is public
+    forever.
+  </p>
+
+  <p>
+    You can always create additional identities within the same wallet by adding
+    additional accounts of the type `Identity` with different account index.
+  </p>
+
+  <!-- <p>
+    Fill out the fields you want to be made into public information. You don't
+    need to fill out anything at all, an identity can simply be the id and
+    nothing else.
+  </p>
+
+  <p>
+    After you save your identity locally in City Hub, you must publish it. This
+    is a separate step, as it allows you to keep editing your identity until you
+    want to make it public. We also allow you to manually share you identity,
+    without publishing to this public registry.
+  </p> -->
+
+  <br />
+  <h2>Create a profile for your identity</h2>
+
+  <p>COMING SOON!</p>
+
+  <p>
+    You will soon be able to publish an profile that is attached to your
+    identity, that contains information about yourself such as name, photo and
+    more.
+  </p>
+  <br>
+  <p>
+    All done? Great! Now you can view your identity information by filling out
+    your id on the find page.
+  </p>
+
+  <br />
+  <p>
+    <a class="button" [routerLink]="['/registry']"
+      >Find identity <span class="mu mu-arrow-right"></span
+    ></a>
+  </p>
+
+  <br /><br />
+
+  <h2>Developer?</h2>
+
+  <p>
+    If you want to build apps and software that integrates with the identity
+    ecosystem, check out
+    <a href="https://www.blockcore.net/" target="_blank">Blockcore</a>.
+  </p>
+
+  <!-- <p>
+      All entities registrated in the City Chain Registry is subfixed with the abbrevation CC, which is short for Crypto
+      Company.
+   </p>
+
+   <p>If your entity name is "Joe's Bar", then the full entity registration will be "<strong>Joe's Bar CC</strong>".</p>
+
+   <p><strong>Registration Process</strong></p>
+
+   <p>The registration process works as follows:</p>
+
+   <p>First you create an identity for your entity using City Hub. This will store the identity that represents the
+      entity. You will need to use <a href="https://city-chain.org/#cityhub" target="_blank">City Hub</a> also for the
+      final step, which is signing the entity registration.</p>
+
+   <p>After you have your identity published, you will be able to look it up and prefill some of the fields below.</p>
+
+   <p>You don't need to specify manager, accountant, director of board or any board members, but if you do, you must
+      ensure that
+      those individuals have their own identity on City Hub before continuing with the registration.</p>
+
+   <p>After you submit the signed entity registration, you will be presented with a payment address. The payment must be
+      completed within 24 hours, or the entity registration will be void.</p>
+
+   <p><strong>Find your identity</strong></p>
+
+   <div class="input-container">
+      <input type="text" name="name" [(ngModel)]="identityInput" placeholder="Identity">
+      <a class="button" (click)="lookupIdentity(identityInput)">Lookup Identity <span
+            class="mu mu-search"></span></a>
+   </div>
+
+   <div *ngIf="reg.registration.identity">
+
+      <p><strong>Registration</strong></p>
+
+      <div class="input-container">
+         <span>Linked Identity: </span>&nbsp;
+         <strong>PTe6MFNouKATrLF5YbjxR1bsei2zwzdyLU</strong>
+      </div>
+
+      <div class="input-container">
+         <input type="text" name="name" [(ngModel)]="reg.registration.name" placeholder="Name">
+
+         <select name="entity-type" id="entity-type" [(ngModel)]="reg.registration.type">
+            <option *ngFor="let type of reg.organizationType" value="{{type.code}}">{{type.name}}</option>
+         </select>
+      </div>
+
+      <div class="input-container">
+         <input type="text" name="address" [(ngModel)]="reg.registration.address" placeholder="Address">
+         <input type="text" name="website" [(ngModel)]="reg.registration.website" placeholder="Website">
+      </div>
+
+      <div class="input-container">
+         <input type="text" name="established" [(ngModel)]="reg.registration.established"
+            placeholder="Established (YYYY-MM-DD)">
+         <input type="text" name="purpose" [(ngModel)]="reg.registration.purpose" placeholder="Purpose">
+      </div>
+
+      <div class="input-container">
+         <input type="text" name="manager" [(ngModel)]="reg.registration.manager" placeholder="Manager">
+         <a class="button" [routerLink]="['/register']">Lookup Identity <span class="mu mu-search"></span></a>
+      </div>
+
+      <div class="input-container">
+         <input type="text" name="directory" [(ngModel)]="reg.registration.director" placeholder="Directory of Board">
+         <a class="button" [routerLink]="['/register']">Lookup Identity <span class="mu mu-search"></span></a>
+      </div>
+
+      <div class="input-container">
+         <input type="text" name="board" [(ngModel)]="reg.registration.board" placeholder="Board member(s)"><a
+            class="button" [routerLink]="['/register']">Lookup Identity <span class="mu mu-search"></span></a>
+      </div>
+
+      <div class="input-container2">
+         <p>Signing rights:</p>
+         <div class="checkbox-container" *ngFor="let item of reg.signingRights"><input type="checkbox"
+               [checked]="item.checked" id="signing-rights-{{item.code}}" name="signing-rights-{{item.code}}"><label
+               for="signing-rights-{{item.code}}">{{item.name}}</label></div>
+      </div>
+
+      <div class="input-container">
+         <input type="text" name="purpose" [(ngModel)]="reg.registration.accountant" placeholder="Accountant">
+         <a class="button" [routerLink]="['/register']">Lookup Identity <span class="mu mu-search"></span></a>
+      </div>
+
+      <p><br><br>
+         <a class="button" [routerLink]="['/register/verify']">Continue <span class="mu mu-arrow-right"></span></a>
+      </p>
+
+   </div> -->
+</div>
