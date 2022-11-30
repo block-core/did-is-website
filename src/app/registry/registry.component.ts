@@ -63,6 +63,11 @@ export class RegistryComponent implements OnInit, OnDestroy {
   }
 
   async lookupIdentity(identity: string) {
+    // Adds support for lookup without the DID Method prefix:
+    if (identity.indexOf(':') == -1) {
+      identity = 'did:is:' + identity;
+    }
+
     this.error = undefined;
     const resolver = new Resolver(is.getResolver());
 
